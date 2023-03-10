@@ -50,7 +50,7 @@ void List::show(){
 }
 
 void List::append(int d){	
-	Node *n;
+	Node *n = new Node;
 	n->data = d; n->next = NULL;
 	if(root == NULL) root = n;
 	else{
