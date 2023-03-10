@@ -50,7 +50,7 @@ void List::show(){
 }
 
 void List::append(int d){	
-	Node *n = new Node;
+	Node *n;
 	n->data = d; n->next = NULL;
 	if(root == NULL) root = n;
 	else{
@@ -63,4 +63,25 @@ void List::append(int d){
 	size++;
 }
 
-//Write List::remove() here
+void List::remove(int idx){
+	size--;
+	Node *p;
+	Node *q;
+	if (idx==0)
+	{
+		p=root;
+		root=root->next;
+		delete p;
+	}
+	else{
+		Node *current = root;
+		for(int i=0;i<idx-1;i++)
+		{
+			current=current->next;
+		}
+		p=current->next;
+		q=current->next->next;
+		current->next=q;
+		delete p;
+	}
+}
